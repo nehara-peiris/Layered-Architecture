@@ -7,7 +7,7 @@ import com.example.layeredarchitecture.model.CustomerDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CustomerBoImpl {
+public class CustomerBoImpl implements CustomerBo {
     CustomerDAO customerDAO = new CustomerDAOImpl();
 
     public ArrayList<CustomerDTO> getAllCustomer() throws SQLException, ClassNotFoundException {
