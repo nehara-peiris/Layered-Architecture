@@ -1,11 +1,13 @@
-package com.example.layeredarchitecture.bo;
+package com.example.layeredarchitecture.bo.custom;
 
+import com.example.layeredarchitecture.bo.SuperBO;
+import com.example.layeredarchitecture.dao.SuperDAO;
 import com.example.layeredarchitecture.model.CustomerDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface CustomerBo {
+public interface CustomerBo extends SuperBO {
     ArrayList<CustomerDTO> getAllCustomer() throws SQLException, ClassNotFoundException;
 
     boolean addCustomer(CustomerDTO dto) throws SQLException, ClassNotFoundException;
@@ -14,9 +16,7 @@ public interface CustomerBo {
 
     boolean existCustomer(String id) throws SQLException, ClassNotFoundException;
 
-    String generateNewCustomerID() throws SQLException, ClassNotFoundException;
-
     boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
 
-    CustomerDTO searchCustomer(String id) throws SQLException, ClassNotFoundException;
+    String generateNewCustomerID() throws SQLException, ClassNotFoundException;
 }

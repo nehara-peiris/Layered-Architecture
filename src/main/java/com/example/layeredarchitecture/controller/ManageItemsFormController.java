@@ -1,7 +1,7 @@
 package com.example.layeredarchitecture.controller;
 
-import com.example.layeredarchitecture.bo.ItemBo;
-import com.example.layeredarchitecture.bo.ItemBoImpl;
+import com.example.layeredarchitecture.bo.custom.ItemBo;
+import com.example.layeredarchitecture.bo.custom.impl.ItemBoImpl;
 import com.example.layeredarchitecture.model.ItemDTO;
 import com.example.layeredarchitecture.view.tdm.ItemTM;
 import com.jfoenix.controls.JFXButton;

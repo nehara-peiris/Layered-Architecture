@@ -1,8 +1,7 @@
 package com.example.layeredarchitecture.controller;
 
-import com.example.layeredarchitecture.bo.CustomerBo;
-import com.example.layeredarchitecture.bo.CustomerBoImpl;
-import com.example.layeredarchitecture.dao.custom.impl.CustomerDAOImpl;
+import com.example.layeredarchitecture.bo.custom.CustomerBo;
+import com.example.layeredarchitecture.bo.custom.impl.CustomerBoImpl;
 import com.example.layeredarchitecture.model.CustomerDTO;
 import com.example.layeredarchitecture.view.tdm.CustomerTM;
 import com.jfoenix.controls.JFXButton;
@@ -70,21 +69,18 @@ public class ManageCustomersFormController {
 
     private void loadAllCustomers() {
         tblCustomers.getItems().clear();
-        /*Get all customers*/
         try {
-            CustomerDAOImpl customerDAO=new CustomerDAOImpl();
-            ArrayList<CustomerDTO> customerDTOArrayList=customerDAO.getAll();
-            for (CustomerDTO customerDTO:customerDTOArrayList) {
-                tblCustomers.getItems().add(new CustomerTM(customerDTO.getId(), customerDTO.getName(),customerDTO.getAddress()));
-            }
+            /*Get all customers*/
+            ArrayList<CustomerDTO> allCustomers = customerBo.getAllCustomer();
 
+            for (CustomerDTO c : allCustomers) {
+                tblCustomers.getItems().add(new CustomerTM(c.getId(), c.getName(), c.getAddress()));
+            }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
-
     }
 
     private void initUI() {

@@ -1,11 +1,12 @@
-package com.example.layeredarchitecture.bo;
+package com.example.layeredarchitecture.bo.custom;
 
+import com.example.layeredarchitecture.bo.SuperBO;
 import com.example.layeredarchitecture.model.ItemDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface ItemBo {
+public interface ItemBo extends SuperBO {
     ArrayList<ItemDTO> getAllItem() throws SQLException, ClassNotFoundException;
 
     boolean deleteItem(String code) throws SQLException, ClassNotFoundException;
@@ -17,7 +18,5 @@ public interface ItemBo {
     boolean existItem(String code) throws SQLException, ClassNotFoundException;
 
     String generateNewItemID() throws SQLException, ClassNotFoundException;
-
-    ItemDTO searchItem(String code) throws SQLException, ClassNotFoundException;
 
 }
